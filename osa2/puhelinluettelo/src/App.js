@@ -59,8 +59,6 @@ class App extends React.Component {
             }
 
             const oldEntry = this.state.persons.find(x => x.name === newPerson.name)
-            console.log('state persons', this.state.persons);
-            console.log('after submit oldEntry is', oldEntry);
 
             if (!oldEntry) {
                 personService.create(newPerson)
@@ -81,7 +79,6 @@ class App extends React.Component {
                 if (window.confirm(confirmMessage)) {
                     personService.update(oldEntry.id, newPerson)
                         .then(updated => {
-                            console.log('updating user with id', oldEntry.id);
                             console.log(updated);
                             const persons = this.state.persons.map(p => p.id !== oldEntry.id ? p : updated)
                             const info = {
