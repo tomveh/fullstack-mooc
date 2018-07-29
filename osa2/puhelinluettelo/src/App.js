@@ -79,7 +79,6 @@ class App extends React.Component {
                 if (window.confirm(confirmMessage)) {
                     personService.update(oldEntry.id, newPerson)
                         .then(updated => {
-                            console.log(updated);
                             const persons = this.state.persons.map(p => p.id !== oldEntry.id ? p : updated)
                             const info = {
                                 text: `päivitettiin ${updated.name}`,
